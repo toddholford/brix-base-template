@@ -22,7 +22,7 @@ function loadTabPanes(panes) {
         tabPaneDiv.id = paneId;
         tabPaneDiv.tabIndex = 0;
         tabPaneDiv.setAttribute("role","tabpanel");
-        tabPaneDiv.setAttribute("aria-labelledby","home-tab");
+        tabPaneDiv.setAttribute("aria-labelledby",paneId+"-tab");
         tabPaneRowDiv.classList.add("row");
         tabPaneOptionsDiv.classList.add("col-4");
         OptionsListDiv.classList.add("list-group");
@@ -30,7 +30,7 @@ function loadTabPanes(panes) {
         OptionsListDiv.setAttribute("role","tablist");
         tabPaneColumnDiv.classList.add("col");
         componentDisplayPanesDiv.classList.add("tab-content");
-        componentDisplayPanesDiv.id = paneId+"componentDisplayPanes";
+        componentDisplayPanesDiv.id = paneId+"ComponentDisplayPanes";
 
         //set active tab
         if (paneArrayIndex < 1) {

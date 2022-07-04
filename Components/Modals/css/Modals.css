@@ -1,0 +1,30 @@
+/* Note: May need to play around with styles in application to get correct positioning and styling. Attempted to make controls as close as possible to figma displays, but some styles may not apply in ZeroHeight. */
+label, textarea, input {    
+    display: block;
+  	color: #404040;
+  	font-family: "Avenir";
+  	font-weight: 400;
+  font-size: 16px;
+  width: 270px;
+}
+
+input {
+	border-color: #919191;
+    border-style: solid;
+    border-width: 1px;
+  height: 40px;
+  padding-left: 10px;
+  width: 283px;
+}
+
+#basicError {
+  border-color: #E03157;
+  border-width: 2px;
+}
+
+/* For input fields with error messages */
+.inputBasicError scan {float: left; line-height: 28px;}
+.inputBasicError label {float: left; line-height: 32px; padding-left: 4px;}
+
+.fieldLabel { line-height: 22px; }
+
