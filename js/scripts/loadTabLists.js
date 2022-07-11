@@ -1,4 +1,4 @@
-function loadTabOptions(tabs, ...tabOptions) {
+function loadTabLists(tabs, ...tabOptions) {
     
     let tabOptionsArrayIndex = 0;
     let currentOptionsArrayIndex = 0;

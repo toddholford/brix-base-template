@@ -1,5 +1,6 @@
 //page names
 const navPages = [
+    "Template",
     "Bottom Navigations",
     "Buttons",
     "Calendars",

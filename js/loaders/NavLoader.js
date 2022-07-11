@@ -3,15 +3,15 @@ function navLoader() {
     const componentSideNavScript = document.createElement('script');
     const componentTopNavScript = document.createElement('script');
 
-    pagesScript.setAttribute('src', '../../js/dataArrays/pages.js');
+    pagesScript.setAttribute('src', '../../js/scripts/sideNavigationPages.js');
     pagesScript.async = false;
-    componentSideNavScript.setAttribute('src', '../../js/components/componentSideNav.js');
+    componentSideNavScript.setAttribute('src', '../../js/scripts/loadComponentSideNav.js');
     componentSideNavScript.async = false;
-    componentTopNavScript.setAttribute('src', '../../js/components/componentTopNav.js');
+    componentTopNavScript.setAttribute('src', '../../js/scripts/loadComponentTopNav.js');
     componentTopNavScript.async = false;
 
     document.body.appendChild(pagesScript);
     document.body.appendChild(componentSideNavScript);
     document.body.appendChild(componentTopNavScript);
 }
-navLoader();
+document.onload = navLoader();

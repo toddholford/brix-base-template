@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brix Example Site</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Avenir" />
+  <link rel="stylesheet" href="../../css/index.css">
+</head>
+
+<body>
+  <nav id="topNavigation" class="navbar navbar-expand-lg navbar-dark bg-dark text-center">
+    <div class="container">
+      <div class="container-fluid">
+        <a href="../../index.html" class="navbar-brand">BRIX</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="sidenav navbar navbar-dark bg-dark">
+    <div id="sideNavigation" class="row">
+      <div class="col-12"><a href="../Bottom Navigations/BottomNavigationsPage.html">Bottom Navigations</a></div>
+      <div class="col-12"><a href="../Buttons/ButtonsPage.html">Buttons</a></div>
+      <div class="col-12"><a href="../Calendars/CalendarsPage.html">Calendars</a></div>
+      <div class="col-12"><a href="../Cards/CardsPage.html">Cards</a></div>
+      <div class="col-12"><a href="../Chips/ChipsPage.html">Chips</a></div>
+      <div class="col-12"><a href="../Dropdowns/DropdownsPage.html">Dropdowns</a></div>
+      <div class="col-12"><a href="../Filter Layouts/FilterLayoutsPage.html">Filter Layouts</a></div>
+      <div class="col-12"><a href="../Forms/FormsPage.html">Forms</a></div>
+      <div class="col-12"><a href="../Form Fields/FormFieldsPage.html">Form Fields</a></div>
+      <div class="col-12"><a href="../Links/LinksPage.html">Links</a></div>
+      <div class="col-12"><a href="../Modals/ModalsPage.html">Modals</a></div>
+      <div class="col-12"><a href="../Notifications/NotificationsPage.html">Notifications</a></div>
+      <div class="col-12"><a href="../Paginations/PaginationsPage.html">Paginations</a></div>
+      <div class="col-12"><a href="../Progress Indicators/ProgressIndicatorsPage.html">Progress Indicators</a></div>
+      <div class="col-12"><a href="../Searchs/SearchsPage.html">Searchs</a></div>
+      <div class="col-12"><a href="../Selectors/SelectorsPage.html">Selectors</a></div>
+      <div class="col-12"><a href="../Snackbars/SnackbarsPage.html">Snackbars</a></div>
+      <div class="col-12"><a href="../Step Progress/StepProgressPage.html">Step Progress</a></div>
+      <div class="col-12"><a href="../Tables/TablesPage.html">Tables</a></div>
+      <div class="col-12"><a href="../Tabs/TabsPage.html">Tabs</a></div>
+      <div class="col-12"><a href="../Toasts/ToastsPage.html">Toasts</a></div>
+      <div class="col-12"><a href="../Tooltips/TooltipsPage.html">Tooltips</a></div>
+      <div class="col-12"><a class="activeSideNavItem" href="../Template/TemplatePage.html">Template</a></div>
+    </div>
+  </nav>
+
+  <br>
+  <br>
+  <div class="row g-0">
+    <div class="col-3"></div>
+    <div class="col">
+      <div id="componentView">
+
+        <!-- COMPONENT PAGE CARD BODY -->
+        <div class="card pane-overflow cardBoxShadow text-center text-bg-dark mb-3">
+          <div class="row g-0">
+            <div class="col-5">
+
+              <!-- COMPONENT PAGE HEADER -->
+              <h5 id="componentHeader">Form Fields</h5>
+
+              <!-- COMPONENT PAGE TABS -->
+              <div class="col g-0">
+                <div class="card-header">
+                  <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link text-bg-dark active" id="input-tab" data-bs-toggle="tab"
+                        data-bs-target="#input-tab-pane" type="button" role="tab" aria-controls="input-tab-pane"
+                        aria-selected="true">Input</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link text-bg-dark" id="textarea-tab" data-bs-toggle="tab"
+                        data-bs-target="#textarea-tab-pane" type="button" role="tab" aria-controls="textarea-tab-pane"
+                        aria-selected="false">Textarea</button>
+                    </li>
+                  </ul>
+                </div>
+              </div><!-- COMPONENT PAGE TABS -->
+
+              <div class="card-body">
+                <div class="tab-content" id="myTabContent">
+
+                  <!-- COMPONENT TAB 1 CONTENT -->
+                  <div class="tab-pane active" id="input-tab-pane" role="tabpanel" aria-labelledby="input-tab"
+                    tabindex="0">
+                    <div class="row">
+                      <div class="col">
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="row justify-content-start align-items-center">
+                              <div class="col-6">
+                                <label>Input Options</label>
+                              </div>
+                              <div class="col-3">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                                  data-bs-target="#myModal">
+                                  ...
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <br>
+
+                        <!-- ACCORDION -->
+                        <div class="code-scroll">
+                          <div class="accordion-container-scroll">
+                            <div class="accordion accordion-scroll" id="accordionPanelsStayOpenExample">
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseOne">
+                                    HTML
+                                  </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                  aria-labelledby="panelsStayOpen-headingOne">
+                                  <div class="accordion-body">
+<pre class="codeBlock htmlCodeBlock">
+  <code>
+    &#60;label class="switch disabled"&#62;
+      &#60;input type="checkbox" disabled&#62;
+      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;/label>
+  </code>
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseTwo">
+                                    CSS
+                                  </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                                  aria-labelledby="panelsStayOpen-headingTwo">
+                                  <div class="accordion-body">
+<pre class="codeBlock cssCodeBlock">
+  <code>
+    &#60;label class="switch disabled"&#62;
+      &#60;input type="checkbox" disabled&#62;
+      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;/label>
+
+    &#60;label class="switch disabled"&#62;
+      &#60;input type="checkbox" disabled&#62;
+      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;/label>
+  </code>
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseThree">
+                                    JavaScript
+                                  </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                                  aria-labelledby="panelsStayOpen-headingThree">
+                                  <div class="accordion-body">
+<pre class="codeBlock jsCodeBlock">
+  <code>
+    &#60;label class="switch disabled"&#62;
+      &#60;input type="checkbox" disabled&#62;
+      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;/label>
+  </code>
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div><!-- COMPONENT TAB 1 CONTENT -->
+
+                  <!-- COMPONENT TAB 2 CONTENT -->
+                  <div class="tab-pane" id="textarea-tab-pane" role="tabpanel" aria-labelledby="textarea-tab"
+                    tabindex="0">
+                    <div class="row">
+                      <div class="col">
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="row justify-content-start align-items-center">
+                              <div class="col-6">
+                                <label>Textarea Options</label>
+                              </div>
+                              <div class="col-3">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                                  data-bs-target="#myModal">
+                                  ...
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <br>
+
+                        <!-- ACCORDION -->
+                        <div class="code-scroll">
+                          <div class="accordion-container-scroll">
+                            <div class="accordion accordion-scroll" id="accordionPanelsStayOpenExample">
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseOne">
+                                    HTML
+                                  </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                  aria-labelledby="panelsStayOpen-headingOne">
+                                  <div class="accordion-body">
+<pre class="codeBlock htmlCodeBlock">
+  <code>
+    &#60;label class="switch disabled"&#62;
+      &#60;input type="checkbox" disabled&#62;
+      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;/label>
+  </code>
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseTwo">
+                                    CSS
+                                  </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                                  aria-labelledby="panelsStayOpen-headingTwo">
+                                  <div class="accordion-body">
+<pre class="codeBlock cssCodeBlock">
+  <code>
+    &#60;label class="switch disabled"&#62;
+      &#60;input type="checkbox" disabled&#62;
+      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;/label>
+
+    &#60;label class="switch disabled"&#62;
+      &#60;input type="checkbox" disabled&#62;
+      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;/label>
+  </code>
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseThree">
+                                    JavaScript
+                                  </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                                  aria-labelledby="panelsStayOpen-headingThree">
+                                  <div class="accordion-body">
+<pre class="codeBlock jsCodeBlock">
+  <code>
+    &#60;label class="switch disabled"&#62;
+      &#60;input type="checkbox" disabled&#62;
+      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;/label>
+  </code>
+</pre>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div><!-- COMPONENT TAB 2 CONTENT -->
+                </div>
+              </div>
+            </div>
+
+            <!-- PANE DISPLAYS -->
+            <div class="col">
+              <div class="tab-content">
+                <div class="tab-pane active" id="home2" role="tabpanel">
+                  <div class="zeroHeightComponentBox">
+                    <div class="zeroHeightDisplayAdjust">
+
+                      <iframe id="homeIframe" src="../Form Fields/displays/Inputs/InputBasic.html" frameborder="0" width="350px"></iframe>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="profile2" role="tabpanel">
+                  <div class="zeroHeightComponentBox">
+                    <div class="zeroHeightDisplayAdjust">
+
+                      <iframe src="../Form Fields/displays/Inputs/InputRequired.html" frameborder="0"></iframe>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="messages2" role="tabpanel">
+                  <div class="zeroHeightComponentBox">
+                    <div class="zeroHeightDisplayAdjust">
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="settings2" role="tabpanel">
+                  <div class="zeroHeightComponentBox">
+                    <div class="zeroHeightDisplayAdjust">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- PANE DISPLAYS -->
+          </div>
+
+          <!-- COMPONENT TAB OPTIONS MODAL -->
+          <div id="myModal" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content bg-dark">
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="lead componentOptionColumnLabel">Top</h5>
+                      <hr class="dropdown-divider">
+                      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                        <label class="btn btn-outline-secondary" for="btnradio1">Basic</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio2">Required</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio3">Optional</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <h5 class="lead componentOptionColumnLabel">Type</h5>
+                      <hr class="dropdown-divider">
+                      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio2" id="btnradio4" autocomplete="off"checked>
+                        <label class="btn btn-outline-secondary" for="btnradio4">Basic</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio2" id="btnradio5" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio5">Disabled</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio2" id="btnradio6" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio6">Error</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <h5 class="lead componentOptionColumnLabel">Inner</h5>
+                      <hr class="dropdown-divider">
+                      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio3" id="btnradio7" autocomplete="off"checked>
+                        <label class="btn btn-outline-secondary" for="btnradio7">None</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio3" id="btnradio8" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio8">Filled</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio3" id="btnradio9" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio9">Icon</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio3" id="btnradio10" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio10">Filled Icon</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <h5 class="lead componentOptionColumnLabel">Bottom</h5>
+                      <hr class="dropdown-divider">
+                      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio4" id="btnradio11" autocomplete="off"
+                          checked>
+                        <label class="btn btn-outline-secondary" for="btnradio11">None</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio4" id="btnradio12" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio12">Error Message</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary">Apply Options</button>
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div><!-- COMPONENT TAB OPTIONS MODAL -->
+
+        </div><!-- COMPONENT PAGE CARD BODY -->
+      </div><!-- COMPONENT VIEW -->
+    </div><!-- COL WRAPPER -->
+  </div><!-- ROW WRAPPER -->
+  <div class="col-1"></div>
+  </div>
+  <script src="../../js/loadPage.js"></script>
+  <script src="../../js/pageObject.js"></script>
+  <script src="js/testOptions.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
