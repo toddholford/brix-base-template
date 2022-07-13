@@ -1,6 +1,5 @@
 //page names
 const navPages = [
-    "Template",
     "Bottom Navigations",
     "Buttons",
     "Calendars",
@@ -23,4 +22,5 @@ const navPages = [
     "Tabs",
     "Toasts",
     "Tooltips",
+    "Template",
 ];

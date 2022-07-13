@@ -57,7 +57,7 @@
 
         <!-- COMPONENT PAGE CARD BODY -->
         <div class="card pane-overflow cardBoxShadow text-center text-bg-dark mb-3">
-          <div class="row g-0">
+          <div id="bodyGutterRemove" class="row g-0">
             <div class="col-5">
 
               <!-- COMPONENT PAGE HEADER -->
@@ -66,23 +66,25 @@
               <!-- COMPONENT PAGE TABS -->
               <div class="col g-0">
                 <div class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                  <ul id="componentTabs" class="nav nav-tabs card-header-tabs" role="tablist">
                     <li class="nav-item" role="presentation">
                       <button class="nav-link text-bg-dark active" id="input-tab" data-bs-toggle="tab"
-                        data-bs-target="#input-tab-pane" type="button" role="tab" aria-controls="input-tab-pane"
-                        aria-selected="true">Input</button>
+                        data-bs-target="#input-tab-pane,#inputIframeTabPane" type="button" role="tab" aria-controls="input-tab-pane"
+                        aria-selected="true" onclick="testOptions(this)">Input</button>
                     </li>
                     <li class="nav-item" role="presentation">
                       <button class="nav-link text-bg-dark" id="textarea-tab" data-bs-toggle="tab"
-                        data-bs-target="#textarea-tab-pane" type="button" role="tab" aria-controls="textarea-tab-pane"
-                        aria-selected="false">Textarea</button>
+                        data-bs-target="#textarea-tab-pane,#textareaIframeTabPane" type="button" role="tab" aria-controls="textarea-tab-pane"
+                        aria-selected="false" onclick="testOptions2(this)">Textarea</button>
                     </li>
                   </ul>
                 </div>
               </div><!-- COMPONENT PAGE TABS -->
 
               <div class="card-body">
-                <div class="tab-content" id="myTabContent">
+                
+                <!-- COMPONENT TAB PANE -->
+                <div id="componentTabPane" class="tab-content">
 
                   <!-- COMPONENT TAB 1 CONTENT -->
                   <div class="tab-pane active" id="input-tab-pane" role="tabpanel" aria-labelledby="input-tab"
@@ -92,10 +94,8 @@
                         <div class="row">
                           <div class="col-6">
                             <div class="row justify-content-start align-items-center">
-                              <div class="col-6">
-                                <label>Input Options</label>
-                              </div>
-                              <div class="col-3">
+                              <div class="col text-start">
+                                <label class="optionsButtonLabel">Input Options</label>
                                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
                                   data-bs-target="#myModal">
                                   ...
@@ -118,8 +118,7 @@
                                     HTML
                                   </button>
                                 </h2>
-                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                                  aria-labelledby="panelsStayOpen-headingOne">
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                                   <div class="accordion-body">
 <pre class="codeBlock htmlCodeBlock">
   <code>
@@ -196,14 +195,14 @@
                         <div class="row">
                           <div class="col-6">
                             <div class="row justify-content-start align-items-center">
-                              <div class="col-6">
-                                <label>Textarea Options</label>
-                              </div>
-                              <div class="col-3">
+                              <div class="col text-start">
+                                
+                                <label style="padding-right: 5px;">Textarea Options</label>
                                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                                  data-bs-target="#myModal">
+                                  data-bs-target="#myModal2">
                                   ...
                                 </button>
+
                               </div>
                             </div>
                           </div>
@@ -227,9 +226,9 @@
                                   <div class="accordion-body">
 <pre class="codeBlock htmlCodeBlock">
   <code>
-    &#60;label class="switch disabled"&#62;
-      &#60;input type="checkbox" disabled&#62;
-      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;label class="text Area"&#62;
+      &#60;input type="text Area" disabled&#62;
+      &#60;span class="text Area"&#62;&#60;/span&#62;
     &#60;/label>
   </code>
 </pre>
@@ -249,14 +248,14 @@
                                   <div class="accordion-body">
 <pre class="codeBlock cssCodeBlock">
   <code>
-    &#60;label class="switch disabled"&#62;
-      &#60;input type="checkbox" disabled&#62;
-      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;label class="text Area"&#62;
+      &#60;input type="text Area"&#62;
+      &#60;span class="text Area"&#62;&#60;/span&#62;
     &#60;/label>
 
-    &#60;label class="switch disabled"&#62;
-      &#60;input type="checkbox" disabled&#62;
-      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;label class="text Area"&#62;
+      &#60;input type="text Area" disabled&#62;
+      &#60;span class="text Area"&#62;&#60;/span&#62;
     &#60;/label>
   </code>
 </pre>
@@ -276,9 +275,9 @@
                                   <div class="accordion-body">
 <pre class="codeBlock jsCodeBlock">
   <code>
-    &#60;label class="switch disabled"&#62;
-      &#60;input type="checkbox" disabled&#62;
-      &#60;span class="slider round"&#62;&#60;/span&#62;
+    &#60;label class="text Area"&#62;
+      &#60;input type="text Area" disabled&#62;
+      &#60;span class="text Area"&#62;&#60;/span&#62;
     &#60;/label>
   </code>
 </pre>
@@ -291,46 +290,33 @@
                       </div>
                     </div>
                   </div><!-- COMPONENT TAB 2 CONTENT -->
-                </div>
+                </div><!-- COMPONENT TAB PANE -->
               </div>
             </div>
 
             <!-- PANE DISPLAYS -->
-            <div class="col">
-              <div class="tab-content">
-                <div class="tab-pane active" id="home2" role="tabpanel">
-                  <div class="zeroHeightComponentBox">
-                    <div class="zeroHeightDisplayAdjust">
+            <div id="paneDisplays" class="tab-content col">
+              <div class="tab-pane active" id="inputIframeTabPane" role="tabpanel" tabindex="0">
+                <div class="zeroHeightComponentBox">
+                  <div class="zeroHeightDisplayAdjust">
 
-                      <iframe id="homeIframe" src="../Form Fields/displays/Inputs/InputBasic.html" frameborder="0" width="350px"></iframe>
+                    <iframe id="inputIframe" class="paneIframe" src="../Form Fields/displays/Input/InputBasic.html" frameborder="0"></iframe>
 
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="profile2" role="tabpanel">
-                  <div class="zeroHeightComponentBox">
-                    <div class="zeroHeightDisplayAdjust">
-
-                      <iframe src="../Form Fields/displays/Inputs/InputRequired.html" frameborder="0"></iframe>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="messages2" role="tabpanel">
-                  <div class="zeroHeightComponentBox">
-                    <div class="zeroHeightDisplayAdjust">
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="settings2" role="tabpanel">
-                  <div class="zeroHeightComponentBox">
-                    <div class="zeroHeightDisplayAdjust">
-                    </div>
                   </div>
                 </div>
               </div>
-            </div><!-- PANE DISPLAYS -->
-          </div>
+              <div class="tab-pane" id="textareaIframeTabPane" role="tabpanel" tabindex="0">
+                <div class="zeroHeightComponentBox">
+                  <div class="zeroHeightDisplayAdjust">
+
+                    <iframe id="textareaIframe" class="paneIframe" src="../Form Fields/displays/TextArea/TextAreaBasic.html" frameborder="0"></iframe>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- PANE DISPLAYS -->
+          </div><!-- REMOVE GUTTERS ROW -->
 
           <!-- COMPONENT TAB OPTIONS MODAL -->
           <div id="myModal" class="modal" tabindex="-1">
@@ -339,7 +325,7 @@
                 <div class="modal-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="lead componentOptionColumnLabel">Top</h5>
+                      <h5 class="lead componentOptionColumnLabel">Top Label</h5>
                       <hr class="dropdown-divider">
                       <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
                         <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
@@ -351,61 +337,119 @@
                       </div>
                     </div>
                     <div class="col">
+                      <h5 class="lead componentOptionColumnLabel">Style</h5>
+                      <hr class="dropdown-divider">
+                      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio20" id="btnradio4" autocomplete="off"checked>
+                        <label class="btn btn-outline-secondary" for="btnradio4">Basic</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio20" id="btnradio5" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio5">Disabled</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio20" id="btnradio6" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio6">Error</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <h5 class="lead componentOptionColumnLabel">Inner Text</h5>
+                      <hr class="dropdown-divider">
+                      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio30" id="btnradio7" autocomplete="off"checked>
+                        <label class="btn btn-outline-secondary" for="btnradio7">None</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio30" id="btnradio8" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio8">Filled</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio30" id="btnradio9" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio9">Icon</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio30" id="btnradio10" autocomplete="off">
+                        <label class="btn btn-outline-secondary componentOptionColumnItemLabel" for="btnradio10">Filled Icon</label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <h5 class="lead componentOptionColumnLabel">Bottom Label</h5>
+                      <hr class="dropdown-divider">
+                      <div class="btn-group-vertical " role="group" aria-label="Basic radio toggle button group">
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio40" id="btnradio11" autocomplete="off"
+                          checked>
+                        <label class="btn btn-outline-secondary" for="btnradio11">None</label>
+                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio40" id="btnradio12" autocomplete="off">
+                        <label class="btn btn-outline-secondary componentOptionColumnItemLabel" for="btnradio12">Error Message</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- COMPONENT TAB OPTIONS MODAL -->
+
+          <!-- COMPONENT TAB OPTIONS MODAL -->
+          <div id="myModal2" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content bg-dark">
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="lead componentOptionColumnLabel">Top</h5>
+                      <hr class="dropdown-divider">
+                      <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+                        <input onclick="testOptions2(this)" type="radio" class="btn-check" name="btnradioTextArea" id="btnradioTextArea1" autocomplete="off" checked>
+                        <label class="btn btn-outline-secondary" for="btnradioTextArea1">Basic</label>
+                        <input onclick="testOptions2(this)" type="radio" class="btn-check" name="btnradioTextArea" id="btnradioTextArea2" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradioTextArea2">Required</label>
+                      </div>
+                    </div>
+                    <div class="col">
                       <h5 class="lead componentOptionColumnLabel">Type</h5>
                       <hr class="dropdown-divider">
                       <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
-                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio2" id="btnradio4" autocomplete="off"checked>
-                        <label class="btn btn-outline-secondary" for="btnradio4">Basic</label>
-                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio2" id="btnradio5" autocomplete="off">
-                        <label class="btn btn-outline-secondary" for="btnradio5">Disabled</label>
-                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio2" id="btnradio6" autocomplete="off">
-                        <label class="btn btn-outline-secondary" for="btnradio6">Error</label>
+                        <input onclick="testOptions2(this)" type="radio" class="btn-check" name="btnradioTextArea20" id="btnradioTextArea4" autocomplete="off"checked>
+                        <label class="btn btn-outline-secondary" for="btnradioTextArea4">Basic</label>
+                        <input onclick="testOptions2(this)" type="radio" class="btn-check" name="btnradioTextArea20" id="btnradioTextArea5" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradioTextArea5">Disabled</label>
                       </div>
                     </div>
                     <div class="col">
                       <h5 class="lead componentOptionColumnLabel">Inner</h5>
                       <hr class="dropdown-divider">
                       <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
-                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio3" id="btnradio7" autocomplete="off"checked>
-                        <label class="btn btn-outline-secondary" for="btnradio7">None</label>
-                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio3" id="btnradio8" autocomplete="off">
-                        <label class="btn btn-outline-secondary" for="btnradio8">Filled</label>
-                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio3" id="btnradio9" autocomplete="off">
-                        <label class="btn btn-outline-secondary" for="btnradio9">Icon</label>
-                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio3" id="btnradio10" autocomplete="off">
-                        <label class="btn btn-outline-secondary" for="btnradio10">Filled Icon</label>
+                        <input onclick="testOptions2(this)" type="radio" class="btn-check" name="btnradioTextArea30" id="btnradioTextArea7" autocomplete="off"checked>
+                        <label class="btn btn-outline-secondary" for="btnradioTextArea7">None</label>
+                        <input onclick="testOptions2(this)" type="radio" class="btn-check" name="btnradioTextArea30" id="btnradioTextArea8" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradioTextArea8">Filled</label>
                       </div>
                     </div>
                     <div class="col">
                       <h5 class="lead componentOptionColumnLabel">Bottom</h5>
                       <hr class="dropdown-divider">
                       <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
-                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio4" id="btnradio11" autocomplete="off"
+                        <input onclick="testOptions2(this)" type="radio" class="btn-check" name="btnradioTextArea40" id="btnradioTextArea11" autocomplete="off"
                           checked>
-                        <label class="btn btn-outline-secondary" for="btnradio11">None</label>
-                        <input onclick="testOptions(this)" type="radio" class="btn-check" name="btnradio4" id="btnradio12" autocomplete="off">
-                        <label class="btn btn-outline-secondary" for="btnradio12">Error Message</label>
+                        <label class="btn btn-outline-secondary" for="btnradioTextArea11">None</label>
+                        <input onclick="testOptions2(this)" type="radio" class="btn-check" name="btnradioTextArea40" id="btnradioTextArea12" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradioTextArea12">Error Message</label>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-secondary">Apply Options</button>
                   <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
-          </div><!-- COMPONENT TAB OPTIONS MODAL -->
+          </div>
+          <!-- COMPONENT TAB OPTIONS MODAL -->
 
         </div><!-- COMPONENT PAGE CARD BODY -->
       </div><!-- COMPONENT VIEW -->
     </div><!-- COL WRAPPER -->
+    <div class="col-1"></div>
   </div><!-- ROW WRAPPER -->
-  <div class="col-1"></div>
-  </div>
-  <script src="../../js/loadPage.js"></script>
-  <script src="../../js/pageObject.js"></script>
+ 
+  <!-- <script src="../../js/loadPage.js"></script> -->
+  <!-- <script src="../../js/pageObject.js"></script> -->
   <script src="js/testOptions.js"></script>
+  <!-- make bootstrap script loader -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
     integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
   </script>

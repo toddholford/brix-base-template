@@ -11,7 +11,22 @@ body {
 .componentOptionColumnLabel {
   border-bottom: solid 1px #FFF;
   padding-bottom: 5px;
-  margin-bottom: 15px;;
+  margin-bottom: 15px;
+  white-space: nowrap;
+}
+
+.componentOptionColumnItemLabel {
+  white-space: nowrap;
+}
+
+.optionsButtonLabel {
+  padding-right: 10px;
+}
+
+.paneIframe {
+  margin-top: 35%;
+  width: 20rem;
+  height: 20rem;
 }
 
 /*Only needed in ZeroHeight - remove when used in production*/
