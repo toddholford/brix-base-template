@@ -1,3 +1,6 @@
+let activeTabsArray = [];
+let activeTabOptionsArray = [];
+
 function loadPage(component) {
 
     const currentPageHeader = document.getElementById("componentHeader");
@@ -21,46 +24,81 @@ function loadPage(component) {
     componentTabsDiv.setAttribute("role", "tablist");
     panesDisplaysDiv.classList.add("col");
 
+    let tabListItem = null;
+    let tabButton = null;
+    let mainPaneDiv = null;
+    let row1Div = null;
+    let col1Div = null;
+    let row2Div = null;
+    let col2Div = null;
+    let openOptionModalDiv = null;
+    let openOptionModalButton = null;
+    let firstLineBreak = null;
+    let accordionCodeScrollDiv = null;
+    let accordionContainerScrollDiv = null;
+    let accordionAccordionScrollDiv = null;
+    let paneDisplayPaneDiv = null;
+    let paneDisplayComponentBoxDiv = null;
+    let paneDisplayAdjustContentDiv = null;
+    let paneDisplayIframe = null;
+    let mainModalDiv = null;
+    let modalDialogDiv = null;
+    let modalContentDiv = null;
+    let modalBodyDiv = null;
+    let modalRowDiv = null;
+    let modalFooterDiv = null;
+    let modalCloseButton = null;
+
+    let modalColDiv = null;
+    let modalColHeaderH5 = null;
+    let dividerHR = null;
+    let buttonGroupDiv = null;
+
+    let buttonGroupInput = null;
+    let buttonGroupLabel = null;
+
+    
     let tabArrayIndex = 0;
     componentTabs.forEach(tab => {
 
+        
+
         //remove whitespaces
         const tabId = tab.tabTitle.split(" ").join("");
-
+        const componentOptions = tab.componentOptions;
+        const componentListItems = tab.componentListItems;
         let accordionHtml = false;
         let accordionCss = false;
         let accordionJs = false;
 
         //CREATE TAB LOCATION
-        const tabListItem = document.createElement("li");
-        const tabButton = document.createElement("button");
+        tabListItem = document.createElement("li");
+        tabButton = document.createElement("button");
         //CREATE TAB CONTENT LOCATION
-        const mainPaneDiv = document.createElement("div");
-        const row1Div = document.createElement("div");
-        const col1Div = document.createElement("div");
-        const row2Div = document.createElement("div");
-        const col2Div = document.createElement("div");
-        const modalOpenButtonRowDiv = document.createElement("div");
-        const modalOpenButtonColDiv = document.createElement("div");
-        const modalOpenButtonLabel = document.createElement("label");
-        const modalOpenButton = document.createElement("button");
-        const firstLineBreak = document.createElement("br");
-        const accordionCodeScrollDiv = document.createElement("div");
-        const accordionContainerScrollDiv = document.createElement("div");
-        const accordionAccordionScrollDiv = document.createElement("div");
+        mainPaneDiv = document.createElement("div");
+        row1Div = document.createElement("div");
+        col1Div = document.createElement("div");
+        row2Div = document.createElement("div");
+        col2Div = document.createElement("div");
+        openOptionModalDiv = document.createElement("div");
+        openOptionModalButton = document.createElement("button");
+        firstLineBreak = document.createElement("br");
+        accordionCodeScrollDiv = document.createElement("div");
+        accordionContainerScrollDiv = document.createElement("div");
+        accordionAccordionScrollDiv = document.createElement("div");
         //CREATE DISPLAY LOCATION
-        const paneDisplayPaneDiv = document.createElement("div");
-        const paneDisplayComponentBoxDiv = document.createElement("div");
-        const paneDisplayAdjustContentDiv = document.createElement("div");
-        const paneDisplayIframe = document.createElement("iframe");
+        paneDisplayPaneDiv = document.createElement("div");
+        paneDisplayComponentBoxDiv = document.createElement("div");
+        paneDisplayAdjustContentDiv = document.createElement("div");
+        paneDisplayIframe = document.createElement("iframe");
         //CREATE MODAL LOCATION
-        const mainModalDiv = document.createElement("div");
-        const modalDialogDiv = document.createElement("div");
-        const modalContentDiv = document.createElement("div");
-        const modalBodyDiv = document.createElement("div");
-        const modalRowDiv = document.createElement("div");
-        const modalFooterDiv = document.createElement("div");
-        const modalCloseButton = document.createElement("button");
+        mainModalDiv = document.createElement("div");
+        modalDialogDiv = document.createElement("div");
+        modalContentDiv = document.createElement("div");
+        modalBodyDiv = document.createElement("div");
+        modalRowDiv = document.createElement("div");
+        modalFooterDiv = document.createElement("div");
+        modalCloseButton = document.createElement("button");
 
         //CREATE TAB LOCATION
         tabListItem.classList.add("nav-item");
@@ -68,7 +106,9 @@ function loadPage(component) {
         tabButton.id = (tabId + "-tab");
         tabButton.type = "button";
         tabButton.setAttribute("data-bs-toggle", "tab");
-        tabButton.setAttribute("data-bs-target", ("#"+tabId));
+        tabButton.setAttribute("data-bs-target", ("#"+tabId+",#"+(tabId+"IframeTabPane")));
+        // tabButton.setAttribute("onclick", "testOptions"+componentTabs.indexOf(tab)+"(this)");
+        tabButton.setAttribute("onclick", "testOptions(this)");
         //CREATE TAB CONTENT LOCATION
         mainPaneDiv.classList.add("tab-pane");
         mainPaneDiv.id = tabId;
@@ -79,12 +119,11 @@ function loadPage(component) {
         col1Div.classList.add("col");
         row2Div.classList.add("row");
         col2Div.classList.add("col-6");
-        modalOpenButtonRowDiv.classList.add("row", "justify-content-start", "align-items-center");
-        modalOpenButtonColDiv.classList.add("col", "text-start");
-        modalOpenButtonLabel.classList.add("optionsButtonLabel");
-        modalOpenButton.classList.add("btn","btn-outline-secondary");
-        modalOpenButton.setAttribute("data-bs-toggle", "modal");
-        modalOpenButton.setAttribute("data-bs-target", ("#"+tabId+"Modal"));
+        openOptionModalDiv.classList.add("d-grid", "gap-2");
+        openOptionModalButton.classList.add("btn","btn-outline-secondary");
+        openOptionModalButton.type = "button";
+        openOptionModalButton.setAttribute("data-bs-toggle", "modal");
+        openOptionModalButton.setAttribute("data-bs-target", ("#"+tabId+"Modal"));
         accordionCodeScrollDiv.classList.add("code-scroll");
         accordionContainerScrollDiv.classList.add("accordion-container-scroll");
         accordionAccordionScrollDiv.classList.add("accordion","accordion-scroll");
@@ -116,8 +155,7 @@ function loadPage(component) {
 
         //INSERT TEXT
         tabButton.innerText = tab.tabTitle;
-        modalOpenButtonLabel.innerText = (tab.tabTitle+" "+"Options");
-        modalOpenButton.innerText = "...";
+        openOptionModalButton.innerText = (tab.tabTitle+" "+"Options");
         modalCloseButton.innerText = "Close";
 
         //set active tab
@@ -134,12 +172,8 @@ function loadPage(component) {
         componentTabPanesDiv.appendChild(mainPaneDiv);
         mainPaneDiv.appendChild(row1Div);
         row1Div.appendChild(col1Div);
-        col1Div.appendChild(row2Div);
-        row2Div.appendChild(col2Div);
-        col2Div.appendChild(modalOpenButtonRowDiv);
-        modalOpenButtonRowDiv.appendChild(modalOpenButtonColDiv);
-        modalOpenButtonColDiv.appendChild(modalOpenButtonLabel);
-        modalOpenButtonColDiv.appendChild(modalOpenButton);
+        col1Div.appendChild(openOptionModalDiv);
+        openOptionModalDiv.appendChild(openOptionModalButton);
         col1Div.appendChild(firstLineBreak);
         col1Div.appendChild(accordionCodeScrollDiv);
 
@@ -159,8 +193,9 @@ function loadPage(component) {
         modalContentDiv.appendChild(modalFooterDiv);
         modalFooterDiv.appendChild(modalCloseButton);
 
+        activeTabsArray.push(tabButton);
 
-        const componentListItems = tab.componentListItems;
+        //CREATE ACCORDION
         componentListItems.forEach(listItem => {
             
             const listItemDefinition = listItem.itemDefinition.split(" ").join("");
@@ -179,7 +214,7 @@ function loadPage(component) {
 
                 accordionItemDiv.classList.add("accordion-item");
                 accordionHeaderH2.classList.add("accordion-header");
-                accordionHeaderH2.id = listItem;
+                accordionHeaderH2.id = tab.tabTitle+"HtmlAccordion"+componentListItems.indexOf(listItem);
                 accordionButton.classList.add("accordion-button", "collapsed");
                 accordionButton.type = "button";
                 accordionButton.setAttribute("data-bs-toggle", "collapse");
@@ -224,7 +259,7 @@ function loadPage(component) {
 
                 accordionItemDiv.classList.add("accordion-item");
                 accordionHeaderH2.classList.add("accordion-header");
-                accordionHeaderH2.id = listItem;
+                accordionHeaderH2.id = tab.tabTitle+"CssAccordion"+componentListItems.indexOf(listItem);
                 accordionButton.classList.add("accordion-button", "collapsed");
                 accordionButton.type = "button";
                 accordionButton.setAttribute("data-bs-toggle", "collapse");
@@ -269,7 +304,7 @@ function loadPage(component) {
 
                 accordionItemDiv.classList.add("accordion-item");
                 accordionHeaderH2.classList.add("accordion-header");
-                accordionHeaderH2.id = listItem;
+                accordionHeaderH2.id = tab.tabTitle+"JsAccordion"+componentListItems.indexOf(listItem);
                 accordionButton.classList.add("accordion-button", "collapsed");
                 accordionButton.type = "button";
                 accordionButton.setAttribute("data-bs-toggle", "collapse");
@@ -304,16 +339,24 @@ function loadPage(component) {
 
         });
 
-        const componentOptions = tab.componentOptions;
+        //CREATE MODAL OPTION DISPLAYS
+        
+
+        //CREATE MODAL
         componentOptions.forEach(option => {
+
+            //remove whitespaces
+            const optionTypeId = option.optionType.split(" ").join("");
+            const optionsList = option.optionsList;
             
-            const modalColDiv = document.createElement("div");
-            const modalColHeaderH5 = document.createElement("h5");
-            const dividerHR = document.createElement("hr");
-            const buttonGroupDiv = document.createElement("div");
+            modalColDiv = document.createElement("div");
+            modalColHeaderH5 = document.createElement("h5");
+            dividerHR = document.createElement("hr");
+            buttonGroupDiv = document.createElement("div");
 
             modalColDiv.classList.add("col");
             modalColHeaderH5.classList.add("lead", "componentOptionColumnLabel");
+            modalColHeaderH5.id = optionTypeId+"ButtonGroup";
             dividerHR.classList.add("dropdown-divider");
             buttonGroupDiv.classList.add("btn-group-vertical");
             buttonGroupDiv.setAttribute("role", "group");
@@ -327,37 +370,40 @@ function loadPage(component) {
 
             let optionsListIndex = 0
 
-            const optionsList = option.optionsList;
+            //CREATE MODAL OPTION BUTTONGROUPS
             optionsList.forEach(optionListItem => {
 
-                const buttonGroupInput = document.createElement("input");
-                const buttonGroupLabel = document.createElement("label");
+                buttonGroupInput = document.createElement("input");
+                buttonGroupLabel = document.createElement("label");
+
+                let buttonGroupInputId = (tabId+optionTypeId+"BtnRadio"+optionsList.indexOf(optionListItem));
 
                 buttonGroupInput.classList.add("btn-check");
-                buttonGroupInput.id = (tabId+optionListItem+"BtnRadio"+optionsList.indexOf(optionListItem));
-                buttonGroupInput.name = (tabId+option.optionType+"Btnradio");
+                buttonGroupInput.id = (tabId+optionTypeId+"BtnRadio"+optionsList.indexOf(optionListItem));
+                buttonGroupInput.name = (tabId+optionTypeId+"Btnradio");
                 buttonGroupInput.type = "radio";
-                // buttonGroupInput.setAttribute("autocomplete", "off");
-                // buttonGroupInput.checked = false;
-                // buttonGroupInput.setAttribute("onclick", "testOptions(this)");
+                buttonGroupInput.title = (optionListItem);
+                buttonGroupInput.setAttribute("autocomplete", "off");
+                buttonGroupInput.setAttribute("onclick", "updateComboGenerated(this)");
                 buttonGroupLabel.classList.add("btn", "btn-outline-secondary", "componentOptionColumnItemLabel");
-                buttonGroupLabel.setAttribute("for", (tabId+optionListItem+"Btnradio"+optionsList.indexOf(optionListItem)));
+                buttonGroupLabel.setAttribute("for", (tabId+optionTypeId+"BtnRadio"+optionsList.indexOf(optionListItem)));
 
                 buttonGroupLabel.innerText = optionListItem;
 
                 if (optionsListIndex < 1) {
-
-                    buttonGroupInput.checked = true;
-                    // buttonGroupInput.toggleAttribute("checked");
+                    buttonGroupInput.toggleAttribute("checked");
                 }
 
                 buttonGroupDiv.appendChild(buttonGroupInput);
                 buttonGroupDiv.appendChild(buttonGroupLabel);
 
+                activeTabOptionsArray.push(buttonGroupInputId);
+
                 optionsListIndex++;
             });
         });
-
     });
 
 }
+
+

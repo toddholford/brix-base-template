@@ -69,7 +69,7 @@
                   <ul id="componentTabs" class="nav nav-tabs card-header-tabs" role="tablist">
                     <li class="nav-item" role="presentation">
                       <button class="nav-link text-bg-dark active" id="input-tab" data-bs-toggle="tab"
-                        data-bs-target="#input-tab-pane,#inputIframeTabPane" type="button" role="tab" aria-controls="input-tab-pane"
+                        data-bs-target="#input-tab-pane, #inputIframeTabPane" type="button" role="tab" aria-controls="input-tab-pane"
                         aria-selected="true" onclick="testOptions(this)">Input</button>
                     </li>
                     <li class="nav-item" role="presentation">
@@ -91,19 +91,11 @@
                     tabindex="0">
                     <div class="row">
                       <div class="col">
-                        <div class="row">
-                          <div class="col-6">
-                            <div class="row justify-content-start align-items-center">
-                              <div class="col text-start">
-                                <label class="optionsButtonLabel">Input Options</label>
-                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                                  data-bs-target="#myModal">
-                                  ...
-                                </button>
-                              </div>
-                            </div>
-                          </div>
+
+                        <div class="d-grid gap-2">
+                          <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#myModal">Input Options</button>
                         </div>
+
                         <br>
 
                         <!-- ACCORDION -->
@@ -383,7 +375,7 @@
           </div>
           <!-- COMPONENT TAB OPTIONS MODAL -->
 
-          <!-- COMPONENT TAB OPTIONS MODAL -->
+          <!-- COMPONENT TAB2 OPTIONS MODAL -->
           <div id="myModal2" class="modal" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content bg-dark">

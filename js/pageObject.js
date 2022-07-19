@@ -1,4 +1,4 @@
-const pageObject = {
+const componentObject = {
     componentPages: [
         {
             pageTitle: "Form Fields",
@@ -9,7 +9,7 @@ const pageObject = {
                         {
                             optionType: "Top Label",
                             optionsList: [
-                                "Basic",
+                                "Standard",
                                 "Required",
                                 "Optional"
                             ]
@@ -25,7 +25,7 @@ const pageObject = {
                         {
                             optionType: "Inner Text",
                             optionsList: [
-                                "None",
+                                "Empty",
                                 "Filled",
                                 "Icon",
                                 "Filled Icon"
@@ -47,7 +47,7 @@ const pageObject = {
                             showItemCssSnippet: true,
                             showItemJsSnippet: false,
                             itemOptionIdentifiers: [
-                                "Basic", "Basic", "None", "None"
+                                "Standard", "Basic", "Empty", "None"
                             ]
                         },
                         {
@@ -57,7 +57,7 @@ const pageObject = {
                             showItemCssSnippet: true,
                             showItemJsSnippet: false,
                             itemOptionIdentifiers: [
-                                "Required", "Basic", "None", "None"
+                                "Required", "Basic", "Empty", "None"
                             ]
                         },
                         {
@@ -67,7 +67,7 @@ const pageObject = {
                             showItemCssSnippet: true,
                             showItemJsSnippet: false,
                             itemOptionIdentifiers: [
-                                "Optional", "Basic", "None", "None"
+                                "Optional", "Basic", "Empty", "None"
                             ]
                         }
                     ]
@@ -166,4 +166,4 @@ const pageObject = {
     ]
 }
 
-loadPage(pageObject);
+loadPage(componentObject);
