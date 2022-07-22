@@ -1,5 +1,7 @@
 let activeTabsArray = [];
 let activeTabOptionsArray = [];
+let activeTabOptionTypesArray = [];
+let activeComponentListItemsArray = [];
 
 function loadPage(component) {
 
@@ -103,12 +105,12 @@ function loadPage(component) {
         //CREATE TAB LOCATION
         tabListItem.classList.add("nav-item");
         tabButton.classList.add("nav-link","text-bg-dark");
-        tabButton.id = (tabId + "-tab");
+        tabButton.id = (tabId.toLowerCase() + "-tab");
         tabButton.type = "button";
         tabButton.setAttribute("data-bs-toggle", "tab");
         tabButton.setAttribute("data-bs-target", ("#"+tabId+",#"+(tabId+"IframeTabPane")));
         // tabButton.setAttribute("onclick", "testOptions"+componentTabs.indexOf(tab)+"(this)");
-        tabButton.setAttribute("onclick", "testOptions(this)");
+        tabButton.setAttribute("onclick", "updateComboGenerated(this)");
         //CREATE TAB CONTENT LOCATION
         mainPaneDiv.classList.add("tab-pane");
         mainPaneDiv.id = tabId;
@@ -194,6 +196,7 @@ function loadPage(component) {
         modalFooterDiv.appendChild(modalCloseButton);
 
         activeTabsArray.push(tabButton);
+        activeComponentListItemsArray.push(componentListItems);
 
         //CREATE ACCORDION
         componentListItems.forEach(listItem => {
@@ -367,6 +370,8 @@ function loadPage(component) {
             modalColDiv.appendChild(modalColHeaderH5);
             modalColDiv.appendChild(dividerHR);
             modalColDiv.appendChild(buttonGroupDiv);
+
+            activeTabOptionTypesArray.push(optionTypeId);
 
             let optionsListIndex = 0
 
