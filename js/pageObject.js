@@ -42,7 +42,7 @@ const componentObject = {
                     componentListItems: [
                         {
                             itemDefinition: "Basic Input Field",
-                            itemComponentHtmlInsert: "../Form Fields/displays/Inputs/InputBasic.html",
+                            itemComponentHtmlInsert: "../Form Fields/displays/Input/InputBasic.html",
                             showItemHtmlSnippet: true,
                             showItemCssSnippet: true,
                             showItemJsSnippet: false,
@@ -52,7 +52,7 @@ const componentObject = {
                         },
                         {
                             itemDefinition: "Required Input Field",
-                            itemComponentHtmlInsert: "../Form Fields/displays/Inputs/InputRequired.html",
+                            itemComponentHtmlInsert: "../Form Fields/displays/Input/InputRequired.html",
                             showItemHtmlSnippet: true,
                             showItemCssSnippet: true,
                             showItemJsSnippet: false,
@@ -62,7 +62,7 @@ const componentObject = {
                         },
                         {
                             itemDefinition: "Optional Input Field",
-                            itemComponentHtmlInsert: "../Form Fields/displays/Inputs/InputOptional.html",
+                            itemComponentHtmlInsert: "../Form Fields/displays/Input/InputOptional.html",
                             showItemHtmlSnippet: true,
                             showItemCssSnippet: true,
                             showItemJsSnippet: false,
@@ -78,7 +78,7 @@ const componentObject = {
                         {
                             optionType: "Top",
                             optionsList: [
-                                "Basic",
+                                "Standard",
                                 "Required",
                             ]
                         },
@@ -92,7 +92,7 @@ const componentObject = {
                         {
                             optionType: "Inner",
                             optionsList: [
-                                "None",
+                                "Empty",
                                 "Filled",
                             ]
                         },
@@ -106,15 +106,17 @@ const componentObject = {
                     componentListItems: [
                         {
                             itemDefinition: "Default Text Area",
+                            itemComponentHtmlInsert: "../Form Fields/displays/TextArea/TextAreaBasic.html",
                             showItemHtmlSnippet: true,
                             showItemCssSnippet: true,
                             showItemJsSnippet: false,
                             itemOptionIdentifiers: [
-                                "Default"
+                                "Standard", "Basic", "Empty", "None"
                             ]
                         },
                         {
                             itemDefinition: "Error Text Area",
+                            itemComponentHtmlInsert: "../Form Fields/displays/TextArea/InputOptional.html",
                             showItemHtmlSnippet: true,
                             showItemCssSnippet: true,
                             showItemJsSnippet: false,
@@ -124,6 +126,7 @@ const componentObject = {
                         },
                         {
                             itemDefinition: "Icon Text Area",
+                            itemComponentHtmlInsert: "../Form Fields/displays/TextArea/InputOptional.html",
                             showItemHtmlSnippet: true,
                             showItemCssSnippet: true,
                             showItemJsSnippet: false,

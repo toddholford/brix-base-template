@@ -2,6 +2,8 @@ let activeTabsArray = [];
 let activeTabOptionsArray = [];
 let activeTabOptionTypesArray = [];
 let activeComponentListItemsArray = [];
+let currentCodeBlocks = [];
+let activePaneDisplaysArray = [];
 
 function loadPage(component) {
 
@@ -139,7 +141,7 @@ function loadPage(component) {
         paneDisplayComponentBoxDiv.classList.add("zeroHeightComponentBox");
         paneDisplayAdjustContentDiv.classList.add("zeroHeightDisplayAdjust");
         paneDisplayIframe.classList.add("paneIframe");
-        paneDisplayIframe.id = (tabId+"Iframe");
+        paneDisplayIframe.id = (tabId.toLowerCase()+"Iframe");
         // paneDisplayIframe.src = "";
         paneDisplayIframe.src = ("../"+currentPageTitle+"/displays/"+tabId+"/"+tabId+"Basic.html");
         //CREATE MODAL LOCATION
@@ -197,6 +199,7 @@ function loadPage(component) {
 
         activeTabsArray.push(tabButton);
         activeComponentListItemsArray.push(componentListItems);
+        activePaneDisplaysArray.push(paneDisplayIframe);
 
         //CREATE ACCORDION
         componentListItems.forEach(listItem => {
@@ -213,7 +216,7 @@ function loadPage(component) {
                 const accordionPanelManageDiv = document.createElement("div");
                 const accordionBodyDiv = document.createElement("div");
                 const htmlCodeBlockPre = document.createElement("pre");
-                const codeBlockCode = document.createElement("code");
+                const htmlCodeBlockCode = document.createElement("code");
 
                 accordionItemDiv.classList.add("accordion-item");
                 accordionHeaderH2.classList.add("accordion-header");
@@ -224,18 +227,20 @@ function loadPage(component) {
                 accordionButton.setAttribute("data-bs-target", "#"+listItemDefinition+accordionArrayIndex);
                 accordionButton.setAttribute("aria-expanded", "false");
                 accordionButton.setAttribute("aria-controls", listItemDefinition+accordionArrayIndex);
+                accordionButton.setAttribute("onclick", "setAccordionCodeBlock(this)");
                 accordionPanelManageDiv.classList.add("accordion-collapse", "collapse");
                 accordionPanelManageDiv.id = listItemDefinition+accordionArrayIndex;
                 accordionBodyDiv.classList.add("accordion-body");
                 htmlCodeBlockPre.classList.add("codeBlock", "htmlCodeBlock");
+                htmlCodeBlockCode.id = "html";
 
                 accordionButton.innerText = "HTML";
-                codeBlockCode.innerHTML = tab.tabTitle;
+                // htmlCodeBlockCode.innerHTML = "html";
 
                 if (accordionArrayIndex < 1) {
-                    accordionPanelManageDiv.classList.add("show");
-                    accordionButton.classList.remove("collapsed");
-                    accordionButton.setAttribute("aria-expanded", "true");
+                    // accordionPanelManageDiv.classList.add("show");
+                    // accordionButton.classList.remove("collapsed");
+                    // accordionButton.setAttribute("aria-expanded", "true");
                 }
                 
                 accordionAccordionScrollDiv.appendChild(accordionItemDiv);
@@ -244,10 +249,11 @@ function loadPage(component) {
                 accordionItemDiv.appendChild(accordionPanelManageDiv);
                 accordionPanelManageDiv.appendChild(accordionBodyDiv);
                 accordionBodyDiv.appendChild(htmlCodeBlockPre);
-                htmlCodeBlockPre.appendChild(codeBlockCode);
+                htmlCodeBlockPre.appendChild(htmlCodeBlockCode);
 
                 accordionArrayIndex++;
                 accordionHtml = true;
+                currentCodeBlocks.push(htmlCodeBlockCode);
             }
             if (listItem.showItemCssSnippet && !accordionCss) {
                 
@@ -258,7 +264,7 @@ function loadPage(component) {
                 const accordionPanelManageDiv = document.createElement("div");
                 const accordionBodyDiv = document.createElement("div");
                 const cssCodeBlockPre = document.createElement("pre");
-                const codeBlockCode = document.createElement("code");
+                const cssCodeBlockCode = document.createElement("code");
 
                 accordionItemDiv.classList.add("accordion-item");
                 accordionHeaderH2.classList.add("accordion-header");
@@ -273,14 +279,16 @@ function loadPage(component) {
                 accordionPanelManageDiv.id = listItemDefinition+accordionArrayIndex;
                 accordionBodyDiv.classList.add("accordion-body");
                 cssCodeBlockPre.classList.add("codeBlock", "cssCodeBlock");
+                cssCodeBlockCode.id = "css";
+
 
                 accordionButton.innerText = "CSS";
-                codeBlockCode.innerHTML = "css"
+                // cssCodeBlockCode.innerHTML = "css";
 
                 if (accordionArrayIndex < 1) {
-                    accordionPanelManageDiv.classList.add("show");
-                    accordionButton.classList.remove("collapsed");
-                    accordionButton.setAttribute("aria-expanded", "true");
+                    // accordionPanelManageDiv.classList.add("show");
+                    // accordionButton.classList.remove("collapsed");
+                    // accordionButton.setAttribute("aria-expanded", "true");
                 }
                 
                 accordionAccordionScrollDiv.appendChild(accordionItemDiv);
@@ -289,10 +297,11 @@ function loadPage(component) {
                 accordionItemDiv.appendChild(accordionPanelManageDiv);
                 accordionPanelManageDiv.appendChild(accordionBodyDiv);
                 accordionBodyDiv.appendChild(cssCodeBlockPre);
-                cssCodeBlockPre.appendChild(codeBlockCode);
+                cssCodeBlockPre.appendChild(cssCodeBlockCode);
 
                 accordionArrayIndex++;
                 accordionCss = true;
+                currentCodeBlocks.push(cssCodeBlockCode);
             }
             if (listItem.showItemJsSnippet && !accordionJs) {
                 
@@ -303,7 +312,7 @@ function loadPage(component) {
                 const accordionPanelManageDiv = document.createElement("div");
                 const accordionBodyDiv = document.createElement("div");
                 const jsCodeBlockPre = document.createElement("pre");
-                const codeBlockCode = document.createElement("code");
+                const jsCodeBlockCode = document.createElement("code");
 
                 accordionItemDiv.classList.add("accordion-item");
                 accordionHeaderH2.classList.add("accordion-header");
@@ -318,14 +327,16 @@ function loadPage(component) {
                 accordionPanelManageDiv.id = listItemDefinition+accordionArrayIndex;
                 accordionBodyDiv.classList.add("accordion-body");
                 jsCodeBlockPre.classList.add("codeBlock", "jsCodeBlock");
+                jsCodeBlockCode.id = "js";
+
 
                 accordionButton.innerText = "JAVASCRIPT";
-                codeBlockCode.innerHTML = "javascript"
+                // jsCodeBlockCode.innerHTML = "javascript"
 
                 if (accordionArrayIndex < 1) {
-                    accordionPanelManageDiv.classList.add("show");
-                    accordionButton.classList.remove("collapsed");
-                    accordionButton.setAttribute("aria-expanded", "true");
+                    // accordionPanelManageDiv.classList.add("show");
+                    // accordionButton.classList.remove("collapsed");
+                    // accordionButton.setAttribute("aria-expanded", "true");
                 }
                 
                 accordionAccordionScrollDiv.appendChild(accordionItemDiv);
@@ -334,10 +345,11 @@ function loadPage(component) {
                 accordionItemDiv.appendChild(accordionPanelManageDiv);
                 accordionPanelManageDiv.appendChild(accordionBodyDiv);
                 accordionBodyDiv.appendChild(jsCodeBlockPre);
-                jsCodeBlockPre.appendChild(codeBlockCode);
+                jsCodeBlockPre.appendChild(jsCodeBlockCode);
 
                 accordionArrayIndex++;
                 accordionJs = true;
+                currentCodeBlocks.push(jsCodeBlockCode);
             }
 
         });
